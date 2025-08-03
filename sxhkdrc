@@ -1,0 +1,35 @@
+# Manejo de ventanas
+super + r
+	rofi -show drun -theme $HOME/.config/rofi/theme.rasi
+shift + super + r
+	rofi -show window -theme $HOME/.config/rofi/theme.rasi
+super + e
+	rofi -show emoji -theme $HOME/.config/rofi/theme.rasi
+super + q
+	xdotool getactivewindow windowkill
+
+# Control de harware
+XF86MonBrightnessUp
+	brightnessctl -d intel_backlight s +10%
+XF86MonBrightnessDown
+	brightnessctl -d intel_backlight s 10%-
+shift + XF86MonBrightnessUp
+	python $HOME/.scripts/brightness/up.py
+shift + XF86MonBrightnessDown
+	python $HOME/.scripts/brightness/down.py
+
+# Herramientas
+Print
+	flameshot gui -p $HOME/Pictures/Screenshots/screenshot.png -c
+XF86Search
+	rofi -show drun -theme $HOME/.config/rofi/theme.rasi
+shift + XF86Search
+	rofi -show window -theme $HOME/.config/rofi/theme.rasi
+
+# Manejo de escritorios
+super + {1-9,0}
+	bspc desktop -f '{1-9,10}'
+
+# bspwm
+super + m
+	bspc quit

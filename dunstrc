@@ -1,0 +1,21 @@
+[global]
+font = 0xProto Nerd Font Mono 14
+frame_width = 3
+frame_color = "#FFFFFF"
+transparency = 20
+corner_radius = 0
+
+[urgency_low]
+background = "#000000"
+foreground = "#FFFFFF"
+timeout = 5
+
+[urgency_normal]
+background = "#000000"
+foreground = "#FFFFFF"
+timeout = 8
+
+[urgency_critical]
+background = "#000000"
+foreground = "#FFFFFF"
+timeout = 0
