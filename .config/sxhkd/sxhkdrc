@@ -1,14 +1,31 @@
-# Manejo de ventanas
+#--- Manejo de ventanas ---#
 super + r
 	rofi -show drun -theme $HOME/.config/rofi/theme.rasi
 shift + super + r
 	rofi -show window -theme $HOME/.config/rofi/theme.rasi
 super + e
 	rofi -show emoji -theme $HOME/.config/rofi/theme.rasi
-super + q
-	xdotool getactivewindow windowkill
 
-# Control de harware
+	# cerrar ventana activa
+super + q
+	bspc node -c
+
+	# cambiar state de las ventanas
+super + f
+	bspc node -t fullscreen
+shift + super + f
+	bspc node -t floating
+super + t
+	bspc node -t tiled
+
+	# cambiar de focus window
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+shift + super + {1-9,0}
+	bspc node -d '{1-9,10}'
+
+#--- Control de harware ---#
 XF86MonBrightnessUp
 	brightnessctl -d intel_backlight s +10%
 XF86MonBrightnessDown
@@ -17,8 +34,14 @@ shift + XF86MonBrightnessUp
 	python $HOME/.scripts/brightness/up.py
 shift + XF86MonBrightnessDown
 	python $HOME/.scripts/brightness/down.py
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# Herramientas
+#--- Herramientas ---#
 Print
 	flameshot gui -p $HOME/Pictures/Screenshots/screenshot.png -c
 XF86Search
@@ -26,10 +49,12 @@ XF86Search
 shift + XF86Search
 	rofi -show window -theme $HOME/.config/rofi/theme.rasi
 
-# Manejo de escritorios
+#--- Manejo de escritorios ---#
 super + {1-9,0}
 	bspc desktop -f '{1-9,10}'
+super + n
+	bspc desktop -l next
 
-# bspwm
+#--- bspwm ---#
 super + m
 	bspc quit
