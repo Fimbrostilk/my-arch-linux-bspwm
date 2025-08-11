@@ -43,7 +43,21 @@ XF86AudioMute
 
 #--- Herramientas ---#
 Print
-	flameshot gui -p $HOME/Pictures/Screenshots/screenshot.png -c
+	scrot --overwrite --compression 0 --exec "xclip -selection clipboard -t image/png -i "$HOME"/Pictures/Screenshots/screenshot.png" --file $HOME/Pictures/Screenshots/screenshot.png
+
+Print + 0
+	scrot --overwrite --compression 0 --monitor 0 --exec "xclip -selection clipboard -t image/png -i "$HOME"/Pictures/Screenshots/screenshot.png" --file $HOME/Pictures/Screenshots/screenshot.png
+
+Print + 1
+	scrot --overwrite --compression 0 --monitor 1 --exec "xclip -selection clipboard -t image/png -i "$HOME"/Pictures/Screenshots/screenshot.png" --file $HOME/Pictures/Screenshots/screenshot.png
+
+super + Print
+	scrot --overwrite --compression 0 --select --exec "xclip -selection clipboard -t image/png -i "$HOME"/Pictures/Screenshots/screenshot.png" --file $HOME/Pictures/Screenshots/screenshot.png
+
+shift + super + Print
+	scrot --overwrite --compression 0 --focused --exec "xclip -selection clipboard -t image/png -i "$HOME"/Pictures/Screenshots/screenshot.png" --file $HOME/Pictures/Screenshots/screenshot.png
+
+
 XF86Search
 	rofi -show drun -theme $HOME/.config/rofi/theme.rasi
 shift + XF86Search
