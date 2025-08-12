@@ -63,6 +63,9 @@ XF86Search
 shift + XF86Search
 	rofi -show window -theme $HOME/.config/rofi/theme.rasi
 
+F7
+	playerctl play-pause
+
 #--- Manejo de escritorios ---#
 super + {1-9,0}
 	bspc desktop -f '{1-9,10}'
