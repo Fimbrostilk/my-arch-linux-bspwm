@@ -13,5 +13,3 @@ xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0
 xrandr --output HDMI1 --mode 1920x1080 --rate 74.97 --above eDP1
 feh --bg-scale $HOME/Pictures/Wallpapers/01.png
 polybar &
-sleep 5
-oneko &
